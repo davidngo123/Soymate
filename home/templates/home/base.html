@@ -49,10 +49,9 @@
           <div class="content-section">
             <h3>Categories</h3>
               <ul class="list-group">
-                <li class="list-group-item list-group-item-light">Breakfast</li>
-                <li class="list-group-item list-group-item-light">Lunch</li>
-                <li class="list-group-item list-group-item-light">Dinner</li>
-                <li class="list-group-item list-group-item-light">Desserts</li>
+                {% for category in categories %}
+                <li class="list-group-item list-group-item-light">{{category.name}}</li>
+                {%endfor%}
               </ul>
             </p>
           </div>
