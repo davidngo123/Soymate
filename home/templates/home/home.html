@@ -1,0 +1,23 @@
+{% extends "home/base.html" %}
+{%block content%}
+
+        <div class = "container">
+            <div class="row">
+                {% for post in posts %}
+                <div class="col-sm mb-4">
+                    
+                    <div class="card" style="width: 18rem;">
+
+                        <img class="card-img-top image-thumbail" src="https://peasandcrayons.com/wp-content/uploads/2020/04/spicy-vegetarian-ramen-recipe-3.jpg" alt="Card image cap">
+                        <div class="card-body text-center ">
+                        <h5 class="card-title">{{post.title}}</h5>
+                        <p class="card-text">{{post.author}}</p>
+                        <a href="#" class="btn btn-dark">Go somewhere</a>
+                        </div>
+                    </div>
+            </div>
+            {% endfor %}
+            </div>
+    </div>
+
+{%endblock content %}
