@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'users.apps.UsersConfig',
+    'crispy_forms',
     'home.apps.HomeConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -127,3 +129,4 @@ STATICFILES_DIRS = [
 
 ]
 MEDIA_ROOT = BASE_DIR / 'static/images'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
