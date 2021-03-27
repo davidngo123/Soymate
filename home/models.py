@@ -11,6 +11,9 @@ class Category(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=100, null=False, blank=False)
     description = models.CharField(max_length=100, null=False, blank=False)
+    ingredients = models.TextField(max_length=500, null=False, blank=False)
+    instructions = models.TextField(max_length=800, null=False, blank=False)
+    cooktime = models.IntegerField(default=10, blank=False)
     image = models.ImageField(null=False, blank = False)
     author = models.ForeignKey(User, on_delete = models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
