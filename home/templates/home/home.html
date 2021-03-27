@@ -1,4 +1,5 @@
 {% extends "home/base.html" %}
+
 {%block content%}
 
         <div class = "container">
@@ -33,10 +34,9 @@
                         <p style="text-align:center;"> <img src="{{post.image.url}}"  class="center"/> </p>
                         <p style="font-size:80%;">Cook Time: {{post.cooktime}} minutes  </p>
                         <h6 style="text-align:center;"> Ingredients:  </h6>
- 
-                         <p> {{ post.ingredients | linebreaks }}</p>
+                        <p>{{ post.ingredients | linebreaks }}</p>
                         <h6 style="text-align:center;"> Cooking Instructions:  </h6>
-                        <p> {{ post.instructions | linebreaksbr }}</p>
+                        <p>{{ post.instructions | linebreaks }}</p>
                     </div>
                     <div class="modal-footer">
                     </div>

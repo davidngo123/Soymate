@@ -130,3 +130,5 @@ STATICFILES_DIRS = [
 ]
 MEDIA_ROOT = BASE_DIR / 'static/images'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGIN_REDIRECT_URL = 'soymate-home'
+LOGIN_URL = 'login'
