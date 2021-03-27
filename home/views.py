@@ -5,8 +5,15 @@ from .models import Post, Category
 
 
 def home(request):
+    category = request.GET.get('category')
+    if category == None:
+        post = Post.objects.all()
+    else:
+        post = Post.objects.filter(category__name=category)
+    
+    
     context = {
-        'posts': Post.objects.all(),
+        'posts': post,
         'categories': Category.objects.all()
     }
 
