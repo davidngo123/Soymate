@@ -15,10 +15,11 @@
     {% if title %}
         <title>Soymate- {{ title }}</title>
     {% else %}
-        <title>Soyamte</title>
+        <title>Soymate</title>
     {% endif %}
 </head>
 <body>
+
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <div class="container">
@@ -36,6 +37,7 @@
             <div class="navbar-nav">
               {% if user.is_authenticated %}
               <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+              <a class="nav-item nav-link" href="{% url 'post-create' %}">Add Recipe</a>
               <a class="nav-item nav-link" href="{% url 'logout' %}">logout</a>
               {% else %}
               <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
@@ -76,6 +78,8 @@
         </div>
       </div>
     </main>
+
+  </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

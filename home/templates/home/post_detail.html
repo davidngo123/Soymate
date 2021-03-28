@@ -1,0 +1,30 @@
+
+{% extends "home/base.html" %}
+{%load crispy_forms_tags %}
+{%block content%}
+<div class="container p-3 border">
+  <h1>{{post.title}}</h1> 
+  {%if object.author == user%}
+  <button type="button" class="btn btn-primary"><a href = "{%url 'post-update' object.id%}"style="color:#ffffff">update</a> </button>
+  {%endif%}
+  {%if object.author == user%}
+  <button type="button" class="btn btn-danger"><a href = "{%url 'post-delete' object.id%}" style="color:#ffffff">delete</a> </button>
+  {%endif%}
+  <div class="container my-5">
+  <p style="text-align:center;"> <img src="{{post.image.url}}"  class="center"/> </p>
+
+</div>
+<div class="container mx-md-n5"> 
+  <h6 style="text-align:center;"> Ingredients:  </h6>
+  <p>{{ post.ingredients | linenumbers | linebreaks }}</p>
+  <h6 style="text-align:center;"> Cooking Instructions:  </h6>
+  <p>{{ post.instructions | linenumbers | linebreaks }}</p>
+
+</div>
+</div>
+
+
+
+
+{%endblock content %}
+

@@ -12,8 +12,8 @@
                         <img class="card-img-top image-thumbail" src= "{{post.image.url}}">
                         <div class="card-body text-center ">
                         <h5 class="card-title">{{post.title}}</h5>
-                        <p class="card-text">{{post.author}}</p>
-                        <a href="#" class="btn btn-dark" data-toggle="modal" data-target="#recipe{{post.title}}">View Recipe</a>
+                        <p class="card-text"> <img class = "rounded-circle" src = "{{post.author.profile.image.url}}" width ="20" height= "20">  {{post.author}}</p>
+                        <a href="{% url 'post-list' post.id %}" class="btn btn-dark" >View Recipe</a>
                         
 
                     </div>
@@ -34,9 +34,9 @@
                         <p style="text-align:center;"> <img src="{{post.image.url}}"  class="center"/> </p>
                         <p style="font-size:80%;">Cook Time: {{post.cooktime}} minutes  </p>
                         <h6 style="text-align:center;"> Ingredients:  </h6>
-                        <p>{{ post.ingredients | linebreaks }}</p>
+                        <p>{{ post.ingredients | linenumbers | linebreaks }}</p>
                         <h6 style="text-align:center;"> Cooking Instructions:  </h6>
-                        <p>{{ post.instructions | linebreaks }}</p>
+                        <p>{{ post.instructions | linenumbers | linebreaks }}</p>
                     </div>
                     <div class="modal-footer">
                     </div>
@@ -48,6 +48,6 @@
             </div>
     </div>
 
-
 {%endblock content %}
+
 
