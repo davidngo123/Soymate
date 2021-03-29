@@ -2,8 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from PIL import Image   
-from django.core.files.storage import default_storage
-from io import BytesIO
+from django.utils import timezone
 
 # Creating model data fields for the recipe post objects 
 
@@ -21,6 +20,8 @@ class Post(models.Model):
     image = models.ImageField(null=False, blank = False)
     author = models.ForeignKey(User, on_delete = models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    date_posted = models.DateTimeField(default=timezone.now)
+
     def __str__(self):
         return self.title
 
