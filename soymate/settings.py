@@ -122,17 +122,16 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_ROOT = BASE_DIR / 'static/images'
 MEDIA_URL ='/images/'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 
 ]
-MEDIA_ROOT = BASE_DIR / 'static/images'
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = 'soymate-home'
 LOGIN_URL = 'login'
