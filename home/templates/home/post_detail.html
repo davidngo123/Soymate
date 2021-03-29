@@ -3,15 +3,22 @@
 {%load crispy_forms_tags %}
 {%block content%}
 <div class="container p-3 border">
-  <h1>{{post.title}}</h1> 
+
+  <div class = "my-md-n5 d-flex justify-content-end ">
+    <div class="col-sm">
+     <h1> {{post.title}}</h1>
+    </div>
   {%if object.author == user%}
   <button type="button" class="btn btn-primary"><a href = "{%url 'post-update' object.id%}"style="color:#ffffff">update</a> </button>
+    &nbsp;
   {%endif%}
+
   {%if object.author == user%}
   <button type="button" class="btn btn-danger"><a href = "{%url 'post-delete' object.id%}" style="color:#ffffff">delete</a> </button>
   {%endif%}
+</div>
   <div class="container my-5">
-  <p style="text-align:center;"> <img src="{{post.image.url}}" width ="300" height= "250" class="center"/> </p>
+  <p style="text-align:center;" > <img src="{{post.image.url}}" width ="300" height= "250" object-fit="cover" class="center"/> </p>
 
 </div>
 <div class="container mx-md-n5"> 

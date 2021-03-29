@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from PIL import Image   
+from django.core.files.storage import default_storage
+from io import BytesIO
 
 # Creating model data fields for the recipe post objects 
 
@@ -25,12 +27,3 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('post-list', kwargs={'pk': self.pk})
 
-    # def save(self):
-    #     super().save()
-    #     img = Image.open(self.image.path)
-
-    #     if img.height > 500 or img.width > 500:
-    #         output_size = (500, 500)
-    #         img.thumbnail(output_size)
-    #         img.save(self.image.path)
-        

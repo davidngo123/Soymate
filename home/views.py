@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from .models import Post, Category
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
