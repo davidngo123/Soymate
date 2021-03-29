@@ -1,7 +1,7 @@
 {% extends "home/base.html" %}
 
 {%block content%}
-
+<h1 class="mb-5">Recipes by {{ view.kwargs.username }}</h1>
         <div class = "container">
             <div class="row">
                 {% for post in posts %}
