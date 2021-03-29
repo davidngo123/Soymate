@@ -26,7 +26,7 @@ SECRET_KEY = 'e69e54d4e71093b67eee7257c657fc28c02f6f0143f6b0ff'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['soymate.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'soymate.herokuapp.com']
 
 
 # Application definition
@@ -142,4 +142,4 @@ AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE')
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
