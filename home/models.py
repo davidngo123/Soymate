@@ -3,6 +3,10 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from PIL import Image   
 from django.utils import timezone
+from django.core.files.uploadedfile import InMemoryUploadedFile
+from io import BytesIO
+from django.core.files import File
+import sys
 
 # Creating model data fields for the recipe post objects 
 
@@ -28,3 +32,21 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('post-list', kwargs={'pk': self.pk})
 
+    def save(self):
+        # Opening the uploaded image
+        im = Image.open(self.image)
+
+        output = BytesIO()
+        if im.height > 400 or im.width > 400:
+        # Resize/modify the image
+            im = im.resize((400, 400))
+
+            # after modifications, save it to the output
+            im.save(output, format='JPEG', quality=95)
+            output.seek(0)
+
+            # change the imagefield value to be the newley modifed image value
+            self.image = InMemoryUploadedFile(output, 'ImageField', "%s.jpg" % self.image.name.split('.')[0], 'image/jpeg',
+                                            sys.getsizeof(output), None)
+
+        super(Post, self).save()
