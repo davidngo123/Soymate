@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'e69e54d4e71093b67eee7257c657fc28c02f6f0143f6b0ff'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -136,9 +136,9 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = 'soymate-home'
 LOGIN_URL = 'login'
 
-AWS_ACCESS_KEY_ID = 'AKIAVCUNUXQKNH3QDIB4'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'soymate-bucket'
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACESS')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE')
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
