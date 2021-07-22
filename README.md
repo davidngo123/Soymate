@@ -1,3 +1,5 @@
 # Soymate
+An open source template for sharing recipes using Bootstrap.
 ![Home](/rme-img/soymate-home.JPG)
-Visit https://soymate.herokuapp.com/ to see the web app!!
+[Heroku Deplayment](https://soymate.herokuapp.com/)
+#Instructions
