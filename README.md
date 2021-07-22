@@ -4,10 +4,12 @@ An open source template for sharing recipes using Bootstrap.
 [Heroku Deployment](https://soymate.herokuapp.com/)
 
 ## Tech Stack
-[Python](https://www.python.org/)
-[Django](https://www.djangoproject.com/)
-[PostgreSQL](https://www.postgresql.org/)
-[Heroku](https://www.heroku.com/)
+[Python](https://www.python.org/)  
+[Django](https://www.djangoproject.com/)  
+[PostgreSQL](https://www.postgresql.org/)  
+[Heroku](https://www.heroku.com/)  
 
 ## Installation 
-``` git clone ```
+``` git clone https://github.com/davidngo123/Soymate.git ```
+``` cd Soymate ```
+``` pip install -r requirements.txt  ```
