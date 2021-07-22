@@ -10,6 +10,7 @@ An open source template for sharing recipes using Bootstrap.
 * [Heroku](https://www.heroku.com/)  
 
 ## Installation 
-``` git clone https://github.com/davidngo123/Soymate.git ```  
-``` cd Soymate ```  
-``` pip install -r requirements.txt  ```  
+``` git clone https://github.com/davidngo123/Soymate.git   
+    cd Soymate     
+    pip install -r requirements.txt  
+    python manage.py runserver  ```  
