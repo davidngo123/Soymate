@@ -1,6 +1,6 @@
 # Soymate
-An open source template for sharing recipes using Bootstrap.
-![Home](/rme-img/soymate-home.JPG)
+An open source template for sharing recipes using Bootstrap.  
+![Home](/rme-img/soymate-home.JPG)  
 [Heroku Deployment](https://soymate.herokuapp.com/)
 
 ## Tech Stack
@@ -15,5 +15,4 @@ An open source template for sharing recipes using Bootstrap.
     pip install -r requirements.txt  
     python manage.py runserver
     
-## Deployment
 
