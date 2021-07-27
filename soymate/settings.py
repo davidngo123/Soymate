@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'home.apps.HomeConfig',
     'django.contrib.admin',
+    'django_rename_app', 
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

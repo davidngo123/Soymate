@@ -7,36 +7,22 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
-
-
-
-def home(request):
-    category = request.GET.get('category')
-    if category == None:
-        post = Post.objects.all()
-    else:
-        post = Post.objects.filter(category__name=category)
-    
-    
-    context = {
-        'posts': post,
-        'categories': Category.objects.all()
-    }
-
-    return render(request, 'home/home.html', context)
-
-
 class PostListView(ListView):
     model = Post
     template_name = 'home/home.html'
     context_object_name = 'posts'
-    ordering = ['-date_posted']
     paginate_by = 4
     
-    # def get_context_data(self, **kwargs):
-    #     context = super(PostListView, self).get_context_data(**kwargs)
-    #     context['categories'] = Category.objects.all()
-    #     return context
+    def get_queryset(self):
+        order = self.request.GET.get('orderby', '-date_posted')
+        new_context = Post.objects.order_by(order)
+        return new_context
+
+    def get_context_data(self, **kwargs):
+        context = super(PostListView, self).get_context_data(**kwargs)
+        context['orderby'] = self.request.GET.get('orderby', '-date_posted')
+        return context
+
 class UserPostListView(ListView):
     model = Post
     template_name = 'home/user_posts.html'  # <app>/<model>_<viewtype>.html
