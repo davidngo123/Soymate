@@ -1,6 +1,7 @@
 # Soymate
 An open source social web app focused on allowing users to share or find new recipes!
 ![Home](/rme-img/Capture.JPG)  
+![Profile](/rme-img/soymate-profile.JPG) 
 [Heroku Deployment](https://soymate.herokuapp.com/)
 
 
