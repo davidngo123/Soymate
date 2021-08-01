@@ -5,10 +5,10 @@ An open source template for sharing recipes using Bootstrap.
 
 
 ## Features
-`following system (like Instagram or Twitter)`
-`User registation and login`
-`Upload and edit recipes`
-`Search and sort other user recipes`
+`following system (like Instagram or Twitter)`  
+`User registation and login`  
+`Upload and edit recipes`  
+`Search and sort other user recipes`  
 
 
 ## Tech Stack
