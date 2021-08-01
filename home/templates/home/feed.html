@@ -2,13 +2,14 @@
 {% load my_tags %}
 {%block content%}
 <div class="col-md-12">
-
+        
         <div class = "container">
-          <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
-            <div class="btn-group" role="group" aria-label="First group">
-              <a class="btn btn-secondary dropdown-toggle mb-4" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Sort By
-              </a>     
+            <h1> My Feed</h1>
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+              <div class="btn-group" role="group" aria-label="First group">
+                <a class="btn btn-secondary dropdown-toggle mt-2 mb-4" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Sort By
+                </a>      
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" href="?orderby=date_posted">Oldest</a>
                 <a class="dropdown-item" href="?orderby=-date_posted">Newest</a>
@@ -24,13 +25,9 @@
             </div>
           </div>
 
-
-
-
-
-            
             <div class="row">
               {% for post in posts %}
+
                 <div class="col-sm mb-4">                    
                     <div class="card" style="width: 18rem;">
                         <img class="card-img-top image-thumbail" src= "{{post.image.url}}" height=100px width=20px>
@@ -39,8 +36,11 @@
                         <p class="card-text" > <img class = "rounded-circle" src = "{{post.author.profile.image.url}}" width ="20" height= "20" >  <a href="{% url 'user-posts' post.author.username %}" style="color:black"> {{post.author}}</a></p>
                         <a href="{% url 'post-list' post.id %}" class="btn btn-dark" >View Recipe</a>
                     </div>                  
-               </div>               
+               </div>
+          
             </div>
+            {% empty %}
+            <h1>You are following no one</h1>    
             {% endfor %}
             
             </div>

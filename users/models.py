@@ -9,9 +9,11 @@ import sys
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
-
+    bio = models.TextField(max_length=20, default='no bio')
+    following = models.ManyToManyField(User, related_name = 'following', blank=True)
+    
     def __str__(self):
-        return f'{self.user.username} Profile'
+        return str(self.user.user)
     
     def save(self,  *args, **kwargs):
         # Opening the uploaded image

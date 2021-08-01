@@ -1,0 +1,63 @@
+{% extends "home/base.html" %}
+{% load my_tags %}
+{%block content%}
+<div class="col-md-12">
+
+        <div class = "container">
+          <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group" role="group" aria-label="First group">
+              <a class="btn btn-secondary dropdown-toggle mb-4" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sort By
+              </a>     
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="?orderby=-user">Alphabetical (A-Z)</a>
+                <a class="dropdown-item" href="?orderby=user"> Reverse Alphabetical (Z-A)</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            {% for person in posts %}
+              <div class="col-sm mb-4">  
+                               
+                  <div class="card" style="width: 13rem;">
+                      <img class="card-img-top image-thumbail" src= "{{person.image.url}}" height=50px width=10px>
+                      <div class="card-body text-center ">
+                        <h5 class="card-title"><a href="{% url 'user-posts' person.user %}" style="color:black">{{person.user}} </a></h5>
+                        <p class="card-text">{{person.bio}}</p>
+                        <form action="{% url 'follow'%}"  method ="post" >
+                          {% csrf_token %}   
+                          <input type="hidden" name="profile_pk" value = {{person.pk}}>
+                          {% if person.user in followers %}
+                          <button type="submit" class="btn btn-danger">Unfollow</button>
+                          {%else %}
+                          <button type="submit" class="btn btn-primary">Follow</button>
+                          {% endif %}
+                        </form>                
+                        
+                  </div>                  
+             </div>               
+          </div>
+          {% empty %}
+          <h1>You are following no one</h1>
+          {% endfor %}
+          
+          </div>
+
+          <div class = "mx-3 mt-4" >
+          {% if is_paginated %}
+
+          {% if page_obj.has_previous %}
+            <a class="btn btn-outline-info mb-4" href="?{% param_replace page=1 %}">First</a>
+            <a class="btn btn-outline-info mb-4" href="?{% param_replace page=page_obj.previous_page_number %}">Previous</a>
+          {% endif %}
+    
+    
+          {% if page_obj.has_next %}
+            <a class="btn btn-outline-info mb-4" href="?{% param_replace page=page_obj.next_page_number %}">Next</a>
+            <a class="btn btn-outline-info mb-4" href="?{% param_replace page=page_obj.paginator.num_pages %}">Last</a>
+          {% endif %}
+    
+        {% endif %}
+      </div>
+    </div>      
+{%endblock content %}
